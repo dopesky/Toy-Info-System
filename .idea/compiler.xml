@@ -9,8 +9,13 @@
         <module name="Projectds" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Projectds" target="11" />
+    <bytecodeTargetLevel target="13">
+      <module name="Projectds" target="13" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Projectds" options="" />
+    </option>
   </component>
 </project>

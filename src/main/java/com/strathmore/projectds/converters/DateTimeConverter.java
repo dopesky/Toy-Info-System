@@ -14,7 +14,8 @@ public class DateTimeConverter implements JsonSerializer<DateTime>, JsonDeserial
 
     @Override
     public DateTime deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
-        if (jsonElement == null || jsonElement.toString() == null || jsonElement.toString().isBlank()) return null;
+        if (jsonElement == null || jsonElement.getAsString() == null || jsonElement.getAsString().isEmpty())
+            return null;
         return DateTime.parse(jsonElement.getAsString(), FORMAT).withZoneRetainFields(ZONE);
     }
 
