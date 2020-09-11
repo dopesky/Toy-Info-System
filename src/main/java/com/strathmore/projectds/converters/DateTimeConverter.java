@@ -9,13 +9,13 @@ import org.joda.time.format.DateTimeFormatter;
 import java.lang.reflect.Type;
 
 public class DateTimeConverter implements JsonSerializer<DateTime>, JsonDeserializer<DateTime> {
-    public static final DateTimeZone ZONE = DateTimeZone.UTC;
+    public static final DateTimeZone ZONE = DateTimeZone.getDefault();
     public static final DateTimeFormatter FORMAT = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss Z");
 
     @Override
     public DateTime deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
         if (jsonElement == null || jsonElement.toString() == null || jsonElement.toString().isBlank()) return null;
-        return DateTime.parse(jsonElement.toString(), FORMAT).withZoneRetainFields(ZONE);
+        return DateTime.parse(jsonElement.getAsString(), FORMAT).withZoneRetainFields(ZONE);
     }
 
     @Override
